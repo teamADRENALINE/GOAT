@@ -9,7 +9,7 @@ public class Phase : MonoBehaviour
     [SerializeField] private float ChangePhase3 = 0.4f;
     [SerializeField] private float ChangePhase4 = 0.2f;
     [SerializeField] private float ChangePhase5 = 0.1f;
-    float ChangePhasehp=0f;
+    [SerializeField] private float ChangePhasehp = 0f;
     [SerializeField] private int Maxhp =0;
     [SerializeField] private int Currenthp =0;
     private Damageable damageable;
@@ -18,6 +18,9 @@ public class Phase : MonoBehaviour
     {
         damageable = GetComponent<Damageable>();
         SetPhase();
+        StatUpdate();
+
+        PhaseChange();
     }
 
     // Update is called once per frame
@@ -40,24 +43,29 @@ public class Phase : MonoBehaviour
         }
     }
     void SetPhase(){
-        if(ChangePhase2 == 0){
+        if(ChangePhase1 == 0){
             MaxPhase = 1;
         }
-        else if(ChangePhase3 == 0){
+        else if(ChangePhase2 == 0){
             MaxPhase = 2;
         }
-        else if(ChangePhase4 == 0){
+        else if(ChangePhase3 == 0){
             MaxPhase = 3;
         }
-        else if(ChangePhase5 == 0){
+        else if(ChangePhase4 == 0){
             MaxPhase = 4;
         }
-        else{
+        else if(ChangePhase5 == 0){
             MaxPhase = 5;
         }
     }
     public void StatUpdate(){
        Maxhp = damageable.Maxhp;
        Currenthp = damageable.Currenthp;
+       if(Currenthp <= ChangePhasehp){
+            CurrentPhase +=1;
+            CurrentPhase = Mathf.Min(CurrentPhase, MaxPhase);
+            PhaseChange();
+       }
     }
 }

@@ -9,9 +9,14 @@ public class Move : MonoBehaviour
     public bool locked = false;
     private Rigidbody2D rb;
     private Vector2 moveInput;
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.flipX = true;
     }
 
     void Update()
@@ -25,11 +30,14 @@ public class Move : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
             moveInput.y -= 1;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)){
+        spriteRenderer.flipX = false;
             moveInput.x -= 1;
-
-        if (Input.GetKey(KeyCode.D))
+        }
+        if (Input.GetKey(KeyCode.D)){
+        spriteRenderer.flipX = true;
             moveInput.x += 1;
+        }
         }
         moveInput = moveInput.normalized;
     }

@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public int damage;
     public bool grazed = false;
+
     void Start()
     {
         GetComponent<Rigidbody2D>().linearVelocity = transform.right * speed;
