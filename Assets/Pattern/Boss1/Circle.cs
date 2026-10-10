@@ -58,11 +58,11 @@ public class Circle : Pattern
             // 左右反転
             if (transform.position.x < player.position.x)
             {
-                spriteRenderer.flipX = true;
+                spriteRenderer.flipX = false;
             }
             else
             {
-                spriteRenderer.flipX = false;
+                spriteRenderer.flipX = true;
             }
 
             yield return null;
@@ -103,7 +103,7 @@ setBeamScript.Execute();
         yield return new WaitForSeconds(1f);
         Boss1 boss = GetComponent<Boss1>();
 
-        spriteRenderer.flipX = false;
+        spriteRenderer.flipX = true;
         moving = false;
         boss.finish = true;
     }

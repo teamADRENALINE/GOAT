@@ -71,7 +71,7 @@ public class Boss1 : MonoBehaviour
         attack = 1;
     }
 
-    //attack = 6;
+    //attack = 1;
     attacking =true;
     if(currentphase == 1){
     switch (attack)
@@ -148,7 +148,7 @@ private IEnumerator Move()
         // X移動
         // =========================
 
-        float targetX = player.position.x + 10f;
+        float targetX = player.position.x + 7f;
         float distanceX = Mathf.Abs(targetX - transform.position.x);
 
         // 距離が遠いほど速くする

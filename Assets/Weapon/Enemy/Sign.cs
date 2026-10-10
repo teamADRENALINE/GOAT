@@ -21,8 +21,9 @@ public class Sign : MonoBehaviour
 
     private IEnumerator sign()
     {
+        cool = 0f;
         // 徐々に表示
-        while (cool < 1f)
+        while (cool < 0.3f)
         {
             cool += Time.deltaTime*1.5f;
             cool = Mathf.Clamp01(cool);
