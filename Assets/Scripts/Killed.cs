@@ -9,7 +9,7 @@ public class Killed : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fadeSpeed = 1f;
     [SerializeField] private SBTrigger sbtrigger;
-
+    public bool death = false;
     bool fade = false;
     private SpriteRenderer sprite;
 
@@ -41,7 +41,7 @@ public class Killed : MonoBehaviour
         StartCoroutine(time());
     }
     private IEnumerator time(){
-
+        death = true;
         yield return new WaitForSeconds(1f);
         flashed();
         yield return new WaitForSeconds(1f);

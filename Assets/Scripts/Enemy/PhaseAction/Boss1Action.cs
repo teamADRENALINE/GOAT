@@ -8,6 +8,7 @@ private float maxValue = 100f;
 
 [SerializeField] private Color startColor = Color.white;
 [SerializeField] private Color targetColor = Color.red;
+[SerializeField] private Killed killed;
 
 private SpriteRenderer spriteRenderer;
 private Phase phase;
@@ -22,6 +23,8 @@ void Start()
 
 void Update()
 {
+    if (killed.death == true){ return;}
+
     float ratio = Mathf.Clamp01(value / maxValue);
 
     spriteRenderer.color = Color.Lerp(

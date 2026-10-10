@@ -16,7 +16,7 @@ public class Move : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        spriteRenderer.flipX = true;
+        spriteRenderer.flipX = false;
     }
 
     void Update()
@@ -31,11 +31,11 @@ public class Move : MonoBehaviour
             moveInput.y -= 1;
 
         if (Input.GetKey(KeyCode.A)){
-        spriteRenderer.flipX = false;
+        spriteRenderer.flipX = true;
             moveInput.x -= 1;
         }
         if (Input.GetKey(KeyCode.D)){
-        spriteRenderer.flipX = true;
+        spriteRenderer.flipX = false;
             moveInput.x += 1;
         }
         }
